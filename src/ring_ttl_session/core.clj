@@ -1,6 +1,5 @@
 (ns ring-ttl-session.core
-  (:require [clojure.core.cache :refer [ttl-cache-factory]]
-            [ring.middleware.session.store :refer [SessionStore]]
+  (:require [ring.middleware.session.store :refer [SessionStore]]
             [expiring-map.core :as em]))
 
 (defn- unique-id []
@@ -40,11 +39,5 @@
   If an optional key :core-cache is given, a session stored based on core.cache is
   returned."
   [ttl & [opts]]
-  (cond
-    (= opts :core-cache) 
-    (TTLMemoryStore. (atom (ttl-cache-factory {} :ttl (* 1000 ttl))))
-    ;;
-    (or (nil? opts) (map? opts)) 
-    (ExpiringMapStore. 
-      (em/expiring-map ttl (merge opts {:expiration-policy :access})))
-    :else (throw (Exception. "Unknown implementation option"))))
+  (ExpiringMapStore.
+    (em/expiring-map ttl (merge opts {:expiration-policy :access}))))

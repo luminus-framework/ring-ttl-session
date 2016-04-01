@@ -47,23 +47,11 @@
 (deftest default-read-not-exit
   (read-not-exist nil))
 
-(deftest core-cache-read-not-exit
-  (read-not-exist :core-cache))
-
 (deftest default-session-creation
   (create-session nil))
-
-(deftest core-cache-session-creation
-  (create-session :core-cache))
 
 (deftest default-session-update
   (update-session nil))
 
-(deftest core-cache-session-update
-  (update-session :core-cache))
-
 (deftest default-session-delete
   (del-session nil))
-
-(deftest core-cache-session-delete
-  (del-session :core-cache))

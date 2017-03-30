@@ -11,7 +11,7 @@ a Clojure's native map.
 
 ## Installation
 
-[![Clojars Project](http://clojars.org/ring-ttl-session/latest-version.svg)](http://clojars.org/ring-ttl-session)
+[![Clojars Project](https://img.shields.io/clojars/v/luminus/ring-ttl-session.svg)](https://clojars.org/luminus/ring-ttl-session)
 
 ## Usage
 
